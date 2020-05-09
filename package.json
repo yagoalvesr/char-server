@@ -13,5 +13,8 @@
     "socket.io": "^2.3.0"
   },
   "devDependencies": {},
-  "description": ""
+  "description": "",
+  "scripts": {
+    "start": "node index.js"
+  }
 }
