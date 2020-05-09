@@ -17,10 +17,6 @@ io.on('connection', (socket) => {
     mapUsuario.set(indexUsuario, '');
     indexUsuario++;
 
-    console.log('nova conexão feita');
-
-    console.log('mapUsuario connection', mapUsuario);
-
     socket.on('entrar', (data) => {
 
         //joing
@@ -34,8 +30,6 @@ io.on('connection', (socket) => {
                 break;
             }
         }
-
-        console.log('mapUsuario entrar', mapUsuario);
 
         let dataLogin = {
             usuario: data.usuario,
@@ -58,8 +52,6 @@ io.on('connection', (socket) => {
     });
 
     socket.on('verificar-lista-usuarios', () => {
-
-    console.log('verificar-lista-usuarios');
 
         let listaUsuarioFromMap = JSON.stringify(Array.from(mapUsuario));
         socket.emit('lista-usuarios', listaUsuarioFromMap);
@@ -91,7 +83,6 @@ io.on('connection', (socket) => {
             indexUsuario--;
             mapUsuario.delete(indexUsuario);
         }
-        console.log(mapUsuario);
 
     });
 
