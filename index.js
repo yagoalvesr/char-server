@@ -21,7 +21,7 @@ io.on('connection', (socket) => {
 
         //joing
 
-        console.log(data.usuario.usuario , 'entrou');
+        console.log(data.usuario.usuario, 'entrou');
 
         for (let [key, value] of mapUsuario) {
 
@@ -30,6 +30,8 @@ io.on('connection', (socket) => {
                 break;
             }
         }
+
+        console.log(mapUsuario);
 
         let dataLogin = {
             usuario: data.usuario,
@@ -77,12 +79,14 @@ io.on('connection', (socket) => {
 
                 socket.leave(data.sala.code)
             }
-            console.log(data.usuario.usuario , 'saiu');
+            console.log(data.usuario.usuario, 'saiu');
             mapUsuario.delete(data.usuario.code);
         } else {
             indexUsuario--;
             mapUsuario.delete(indexUsuario);
         }
+
+        console.log(mapUsuario);
 
     });
 
